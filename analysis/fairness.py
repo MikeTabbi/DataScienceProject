@@ -26,7 +26,7 @@ regions = test_set['region']
 
 # Get predictions
 y_pred = xgb.predict(X_test)
-y_proba = xgb.predict_proba(X_test)[:, 1]
+y_proba = xgb.predict_proba(X_test)[:, 1]  # type: ignore
 
 print("=== Test Set Summary ===")
 print(f"Total test samples: {len(X_test)}")
@@ -87,7 +87,8 @@ plt.xticks(rotation=45, ha='right')
 plt.legend()
 
 for bar, val in zip(bars.patches, recall_by_region['recall_pct']):
-    bars.annotate(f'{val:.1f}%', (bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.3),
+    bars.annotate(f'{val:.1f}%',  # type: ignore
+                  (bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.3),  # type: ignore
                   ha='center', va='bottom', fontsize=9)
 
 plt.tight_layout()
@@ -127,8 +128,8 @@ plain_english = [
 ]
 colors = ['#d9534f', '#d9534f']
 
-bars = plt.bar(metric_names, scores, color=colors, edgecolor='white',
-               linewidth=1.5, width=0.4)
+bars_summary = plt.bar(metric_names, scores, color=colors,
+                       edgecolor='white', linewidth=1.5, width=0.4)
 plt.axhline(y=0.1, color='green', linestyle='--', linewidth=1.5,
             label='Fair threshold (0.10)')
 plt.title('Bias Measurement Summary\n(Closer to 0 = More Fair)',
@@ -136,10 +137,10 @@ plt.title('Bias Measurement Summary\n(Closer to 0 = More Fair)',
 plt.ylabel('Bias Score (0 = Fair, 1 = Maximum Bias)', fontsize=11)
 plt.ylim(0, 0.5)
 
-for bar, val, note in zip(bars, scores, plain_english):
-    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.015,
+for bar, val, note in zip(bars_summary, scores, plain_english):
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.015,  # type: ignore
              f'{val:.4f}', ha='center', fontsize=13, fontweight='bold', color='#d9534f')
-    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() / 2,
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() / 2,  # type: ignore
              note, ha='center', fontsize=9, color='white', fontweight='bold')
 
 plt.legend()
