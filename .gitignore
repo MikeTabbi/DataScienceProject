@@ -2,4 +2,6 @@
 __pycache__/
 *.pyc
 .DS_Store
-data/
+data/starter_data_enriched.csv
+data/starter_data.csv
+data/kaggle_audio_features.csv
