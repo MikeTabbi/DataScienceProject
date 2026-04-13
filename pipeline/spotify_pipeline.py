@@ -20,7 +20,7 @@ SEARCH_QUERIES = {
     ("Ghana", "GH"):        ["highlife", "azonto", "ghana pop"],
     ("SouthAfrica", "ZA"):  ["amapiano", "kwaito", "south africa house"],
     ("Brazil", "BR"):       ["funk carioca", "sertanejo", "bossa nova"],
-    ("Mexico", "MX"):       ["reggaeton", "banda", "norteño"],
+    ("Mexico", "MX"):       ["reggaeton", "banda", "norteÃ±o"],
     ("Colombia", "CO"):     ["cumbia", "vallenato", "colombia pop"],
     ("Korea", "KR"):        ["k-pop", "korean indie", "k-rnb"],
     ("Japan", "JP"):        ["j-pop", "city pop", "j-rock"],
